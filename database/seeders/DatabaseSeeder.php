@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tags;
 
 class DatabaseSeeder extends Seeder
 {
