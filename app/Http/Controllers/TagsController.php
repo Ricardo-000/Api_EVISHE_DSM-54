@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tags;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class TagsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::all();
-        return response()->json(['posts'=> $post]);
+        //
     }
 
     /**
@@ -41,17 +41,10 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-<<<<<<< HEAD
-     * @param  int  $id
+     * @param  \App\Models\Tags  $tags
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-=======
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
->>>>>>> f96c2d155e698e43a944e92d03bd08c0de7850c1
+    public function show(Tags $tags)
     {
         //
     }
@@ -59,17 +52,10 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-<<<<<<< HEAD
-     * @param  int  $id
+     * @param  \App\Models\Tags  $tags
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-=======
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
->>>>>>> f96c2d155e698e43a944e92d03bd08c0de7850c1
+    public function edit(Tags $tags)
     {
         //
     }
@@ -78,17 +64,10 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-<<<<<<< HEAD
-     * @param  int  $id
+     * @param  \App\Models\Tags  $tags
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-=======
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Post $post)
->>>>>>> f96c2d155e698e43a944e92d03bd08c0de7850c1
+    public function update(Request $request, Tags $tags)
     {
         //
     }
@@ -96,17 +75,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-<<<<<<< HEAD
-     * @param  int  $id
+     * @param  \App\Models\Tags  $tags
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-=======
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Post $post)
->>>>>>> f96c2d155e698e43a944e92d03bd08c0de7850c1
+    public function destroy(Tags $tags)
     {
         //
     }
