@@ -41,17 +41,10 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-<<<<<<< HEAD
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-=======
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category)
->>>>>>> f96c2d155e698e43a944e92d03bd08c0de7850c1
     {
         //
     }
@@ -59,17 +52,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-<<<<<<< HEAD
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-=======
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function edit(Category $category)
->>>>>>> f96c2d155e698e43a944e92d03bd08c0de7850c1
     {
         //
     }
@@ -78,17 +64,10 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-<<<<<<< HEAD
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-=======
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Category $category)
->>>>>>> f96c2d155e698e43a944e92d03bd08c0de7850c1
     {
         //
     }
@@ -96,17 +75,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-<<<<<<< HEAD
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-=======
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category)
->>>>>>> f96c2d155e698e43a944e92d03bd08c0de7850c1
     {
         //
     }
