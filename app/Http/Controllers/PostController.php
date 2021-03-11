@@ -2,86 +2,67 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\post;
+use App\Models\category as ModelsCategory;
 use Illuminate\Http\Request;
-use App\Models\Post;
-
+use PhpParser\Node\Stmt\Return_;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //index posts 
+    //listar todos los posts 
     public function index()
     {
         $post = Post::all();
-        return response()->json(['posts'=> $post]);
+        //dd($post);
+        return response()->json(['posts' => $post]);
+    }
+    //show post
+
+    //mostrar post individual detalle post
+    public function individual($id)
+    {
+        $post = Post::findOrfail($id);
+        //dd($post);
+        return response()->json(['post' => $post]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    // lista todos los post de una categoria
+    public function categoryPost($id)
     {
-        //
+        //llamamos a la categoria segun el id que mandemos en el request 
+        $category = ModelsCategory::findOrFail($id);
+        // declaramos $ post para acceder a los post de la categoria con el id enviado por el request
+        $posts = Post::where('category_id', $category->id)
+            ->latest('id')
+            ->get();
+        return response()->json(
+            [
+                'category' => $category,
+                'posts' => $posts
+            ]
+        );
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
+    public function categoryPosthome()
     {
-        //
-    }
+        //llamamos a las categorias
+        $categories = ModelsCategory::all()->take(3);
+        // return ($categories.'entra a categorias');
+        $array = array();
+        foreach ($categories as $category) {
+            $posts = Post::where('category_id', $category->id)
+                ->limit(3)
+                ->get();
+            $array[] = $posts;
+        }
+        //return $array;
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Post $post)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Post $post)
-    {
-        //
+        return response()->json(
+            [
+                'category' => $categories,
+                'posts' => $array
+            ]
+        );
     }
 }

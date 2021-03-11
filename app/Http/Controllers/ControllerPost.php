@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
-
-class CategoryController extends Controller
+use App\Models\Post;
+class ControllerPost extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +13,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // select * from categories
-        // lista todas las categorias select * from categories
-        $categories = Category::all();
-        return response()->json(['categories' => $categories]);
+        //
+            $post = Post::all();
+            //dd($post);
+            return response()->json(['posts'=> $post]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,6 +28,7 @@ class CategoryController extends Controller
     {
         //
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -38,22 +39,20 @@ class CategoryController extends Controller
     {
         //
     }
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // /api/category/
-
     public function show($id)
     {
-        // selec * from categories where id = $id;
-        // muestra el detalle de la categoria 
-        //selec * from categories where id = $id;
-        $category = Category::findOrFail($id);
-        return response()->json(['category' => $category]);
+        //
+        $post = Post::findOrfail($id);
+        return response()->json(['post' => $post]);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -64,6 +63,7 @@ class CategoryController extends Controller
     {
         //
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -75,6 +75,7 @@ class CategoryController extends Controller
     {
         //
     }
+
     /**
      * Remove the specified resource from storage.
      *

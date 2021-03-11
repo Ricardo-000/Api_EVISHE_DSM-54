@@ -1,8 +1,6 @@
 <?php
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,10 +11,15 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); */
 
-Route::apiResource('category','\App\Http\Controllers\CategoryController');
-Route::apiResource('post','\App\Http\Controllers\PostController');
+//Routes category
+Route::apiResource('categories','\App\Http\Controllers\CategoryController');
+Route::apiResource('posts','\App\Http\Controllers\ControllerPost');
+//Route::get('post/{id}','\App\Http\Controllers\PostController@individual');
+//Route::get('post','\App\Http\Controllers\PostController@index');
+//Route::get('pdededeost','\App\Http\Controllers\PostController@index');
+Route::get('postCategory/{id}','\App\Http\Controllers\PostController@categoryPost');
+Route::get('postCategory','\App\Http\Controllers\PostController@categoryPosthome');
